@@ -5,6 +5,7 @@ plain Markdown instructions, no build step.
 
 ## Ground rules
 
+- **Licence.** By opening a pull request you agree that your contribution is licensed under the project's MIT licence. The name "phd-hunter" stays with this project ([TRADEMARK.md](TRADEMARK.md)).
 - **No personal data, ever.** Not yours, not a test user's. `profile/`,
   `config/search.json`, `data/`, `reports/`, `output/` and `documents/` are
   git-ignored; keep it that way. Run `python3 -m unittest discover tests`

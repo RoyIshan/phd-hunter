@@ -77,12 +77,12 @@ Every mode also has a short form (`/scan`, `/evaluate`, and so on). **Paste an a
 You need [Claude Code](https://claude.com/claude-code) (or another agent CLI that reads `AGENTS.md`), Python 3.9+ and `curl`. Optional: `pip install pypdf python-docx` to read PDFs during setup and export drafts to Word.
 
 > [!IMPORTANT]
-> **Use a private repository for your own search.** A fork of a public repo is public. Your personal folders are git-ignored, but private is the safe default.
+> **Keep your own search private.** Your personal folders are git-ignored, so a normal clone never uploads them. If you want your own remote, make it a private repository (a fork of a public repo is public) and keep this one as `upstream`: `git remote rename origin upstream`.
 
 **1. Get it.**
 
 ```bash
-git clone https://github.com/<you>/phd-hunter.git
+git clone https://github.com/RoyIshan/phd-hunter.git
 cd phd-hunter
 ```
 
@@ -404,6 +404,10 @@ No personal data, ever, and nothing that logs in, posts, sends or gets around a 
 
 ## Credits and licence
 
-Inspired by [career-ops](https://github.com/career-ops-hq/career-ops) and [ai-job-search](https://github.com/ai-job-search-dev/ai-job-search). Data on people and projects comes from [OpenAlex](https://openalex.org) and [CORDIS](https://cordis.europa.eu). MIT licence.
+Inspired by [career-ops](https://github.com/career-ops-hq/career-ops) and [ai-job-search](https://github.com/ai-job-search-dev/ai-job-search). Data on people and projects comes from [OpenAlex](https://openalex.org) and [CORDIS](https://cordis.europa.eu).
+
+### Forks, attribution and the name
+
+Forks and pull requests are welcome. The code is [MIT](LICENSE) licensed: copy and change it freely, but keep the licence and copyright notice. The name **phd-hunter** and its artwork are reserved for this project: a modified copy needs its own name and a line saying it is based on this one. See [TRADEMARK.md](TRADEMARK.md). To cite the project, use [CITATION.cff](CITATION.cff) (GitHub shows a "Cite this repository" button).
 
 <sub>phd-hunter drafts and recommends. Evaluations are recommendations, not truth, and country figures are orientation. You decide, and you are responsible for what you send.</sub>

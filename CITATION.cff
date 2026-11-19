@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use phd-hunter in your work or build on it, please cite it as below and keep the licence notice."
+title: "phd-hunter: a local, human-in-the-loop PhD hunter for Europe"
+type: software
+authors:
+  - name: "RoyIshan and phd-hunter contributors"
+repository-code: "https://github.com/RoyIshan/phd-hunter"
+license: MIT
+keywords:
+  - phd
+  - doctoral positions
+  - europe
+  - euraxess
+  - job search
+  - claude code
