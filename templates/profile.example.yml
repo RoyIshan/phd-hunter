@@ -1,0 +1,68 @@
+# Example profile for a fictional candidate. /phd-hunter setup writes your own
+# to profile/profile.yml from your documents. To do it by hand, copy this file
+# there and replace every value.
+#
+# Rule for this file: facts only. Anything you are not sure of is written as
+# CONFIRM, never guessed. Eligibility verdicts depend on it.
+
+candidate:
+  name: Alex Example
+  email: alex@example.org
+  phone: "+00 000 000 000"
+  links: [linkedin.com/in/alex-example, github.com/alex-example]
+  location: Granada, Spain
+  highest_degree: MSc Language Analysis and Processing, University of Example (graduated July 2026)
+  thesis_grade: "9.1/10"
+  bachelor: BA Linguistics, University of Example, 8.4/10
+  publications: 1          # count of peer-reviewed publications; 0 is normal for PhD applicants
+  languages:
+    Spanish: native
+    English: C1
+    Basque: B1
+
+eligibility:
+  nationality: Spanish                 # decides visa needs and fee status (UK, IE)
+  residence_permit: not needed in EU/EEA
+  # MSCA mobility rule: no more than 12 months of residence or main activity
+  # in the host country during the 36 months before recruitment.
+  countries_resided_over_12_months_in_last_36: [Spain]
+  masters_ects: 120
+  masters_thesis_ects: 30
+  english_test: "IELTS 7.5 (March 2026)"
+  earliest_start: "2027-02"
+
+targets:
+  roles:
+    - Funded PhD position / doctoral researcher (employed or with a full stipend)
+  not_wanted:
+    - Self-funded or tuition-charging PhD places
+    - Postdoc and faculty positions
+  regions: Europe (EU/EEA, Switzerland, UK)
+  preferred_countries: [Netherlands, Germany, Sweden, Denmark, Finland]   # ranking weight, not a filter
+  working_language: English
+  deal_breakers: []        # e.g. "no positions requiring animal experiments", "must be within 3h of Madrid by train"
+
+research:
+  primary_field: Computational Linguistics
+  adjacent_fields: [Natural Language Processing, Speech Technology, Digital Humanities]
+  themes:
+    - Language technology for low-resource languages
+    - Evaluation of multilingual language models
+  methods_strong: [corpus construction, annotation studies, transformer fine-tuning, error analysis]
+  methods_working: [statistics, Python, PyTorch]
+  methods_gap: [formal semantics, large-scale distributed training]
+
+# Optional: change how much each rubric dimension counts (must sum to 100).
+# Defaults are in reference/rubric.md.
+rubric_weights: {}
+
+narrative:
+  one_liner: Linguist turned NLP researcher who builds and tests language technology for languages with little data.
+  phd_motivation: >
+    One or two honest sentences on why a doctorate and why now, in your own words.
+  proof_points:
+    - A concrete result with a number or a named method
+    - Another one
+
+references:
+  - {name: Prof. Jane Placeholder, role: Thesis Supervisor, org: University of Example, email: jane@example.org}

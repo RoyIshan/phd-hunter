@@ -1,0 +1,200 @@
+{
+  "_comment": "Search settings for scripts/scan.py. /phd-hunter setup writes config/search.json from your profile; this file shows the shape. Everything here is yours to edit, then run: python3 scripts/scan.py --rescore",
+  "queries": [
+    "computational linguistics",
+    "language technology",
+    "natural language processing",
+    "low-resource languages",
+    "speech technology",
+    "multilingual",
+    "corpus linguistics",
+    "digital humanities"
+  ],
+  "candidate_languages": [
+    "English",
+    "Spanish"
+  ],
+  "sources": {
+    "euraxess": {
+      "enabled": true,
+      "pages": 8,
+      "note": "All of Europe. Keyword search is not available to scripts, so the newest first-stage-researcher offers per research field are walked and scored locally. Field IDs: reference/euraxess-fields.json",
+      "facets": {
+        "Computer science": "job_research_field%3A78",
+        "Language sciences": "job_research_field%3A281",
+        "Information science": "job_research_field%3A251",
+        "MSCA funded": "job_is_eu_founded%3A4348"
+      }
+    },
+    "academictransfer": {
+      "enabled": true,
+      "pages": 2,
+      "note": "Netherlands"
+    },
+    "jobsacuk": {
+      "enabled": true,
+      "pages": 1,
+      "note": "UK PhD studentships"
+    },
+    "jobbnorge": {
+      "enabled": true,
+      "pages": 6,
+      "note": "Norway"
+    },
+    "academics": {
+      "enabled": true,
+      "pages": 1,
+      "note": "Germany, Austria, Switzerland"
+    },
+    "ethz": {
+      "enabled": true,
+      "pages": 1,
+      "note": "ETH Zürich"
+    },
+    "kth": {
+      "enabled": true,
+      "pages": 1,
+      "note": "KTH Stockholm"
+    },
+    "tum": {
+      "enabled": true,
+      "pages": 1,
+      "note": "TU Munich"
+    },
+    "aalto": {
+      "enabled": true,
+      "pages": 3,
+      "note": "Aalto University"
+    },
+    "academicpositions": {
+      "enabled": true,
+      "via": "browser",
+      "max_pages": 15,
+      "note": "Collected in the browser pane (see modes/scan.md). Field slugs are the part after /jobs/field/ on academicpositions.com.",
+      "fields": [
+        "computer-science-mf",
+        "linguistics"
+      ]
+    }
+  },
+  "role_include": [
+    "phd",
+    "ph\\.d",
+    "doctoral",
+    "doctorate",
+    "doktorand",
+    "promotion",
+    "promotionsstelle",
+    "promovend",
+    "stipendiat",
+    "early[- ]stage researcher",
+    "studentship",
+    "predoc",
+    "prae[- ]?doc",
+    "research assistant",
+    "wissenschaftliche[rn]? mitarbeiter",
+    "junior researcher",
+    "\\bESR\\b",
+    "\\bDC ?\\d"
+  ],
+  "role_exclude": [
+    "post[- ]?doc",
+    "professor",
+    "lecturer",
+    "tenure",
+    "head of",
+    "director",
+    "technician",
+    "lab manager",
+    "postdoktor",
+    "universitetslektor",
+    "førsteamanuensis",
+    "associate prof",
+    "senior"
+  ],
+  "weights": {
+    "strong": {
+      "points": 14,
+      "terms": [
+        "computational linguistics",
+        "language technology",
+        "natural language processing",
+        "low-resource",
+        "multilingual",
+        "speech recognition",
+        "machine translation"
+      ]
+    },
+    "medium": {
+      "points": 7,
+      "terms": [
+        "nlp",
+        "language model",
+        "llm",
+        "corpus",
+        "annotation",
+        "dialogue",
+        "speech",
+        "semantic",
+        "syntax",
+        "digital humanities",
+        "evaluation",
+        "transformer"
+      ]
+    },
+    "weak": {
+      "points": 3,
+      "terms": [
+        "machine learning",
+        "artificial intelligence",
+        "data science",
+        "computer science",
+        "linguistic",
+        "cognitive"
+      ]
+    },
+    "negative": {
+      "points": -12,
+      "terms": [
+        "chemistry",
+        "chemical",
+        "biolog",
+        "protein",
+        "genom",
+        "physics",
+        "quantum",
+        "materials",
+        "polymer",
+        "geolog",
+        "marine",
+        "mechanical engineering",
+        "civil engineering",
+        "nano",
+        "semiconductor",
+        "wet lab",
+        "econometric",
+        "accounting"
+      ]
+    }
+  },
+  "country_bonus": {
+    "Netherlands": 5,
+    "Germany": 5,
+    "Sweden": 4,
+    "Denmark": 4,
+    "Norway": 4,
+    "Finland": 4,
+    "Belgium": 4,
+    "Switzerland": 4,
+    "Austria": 3,
+    "Ireland": 3,
+    "France": 2,
+    "Spain": 2,
+    "United Kingdom": 0
+  },
+  "msca_blocked_countries": [
+    "Spain"
+  ],
+  "min_score_to_keep": 15,
+  "urgent_days": 10
+}

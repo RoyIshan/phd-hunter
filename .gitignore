@@ -1,0 +1,23 @@
+# ---- Personal data: never commit ----
+# Your CV, eligibility facts and writing voice
+profile/*
+!profile/README.md
+# Your search settings (research themes, countries, languages)
+config/search.json
+# Scanned postings, tracker, contacts, saved adverts, calendar
+data/
+# Evaluation reports, application packs, source documents
+reports/
+output/
+documents/*
+!documents/README.md
+dashboard.html
+
+# ---- Local noise ----
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+*.docx
+~$*
