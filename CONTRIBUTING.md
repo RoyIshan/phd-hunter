@@ -41,6 +41,13 @@ python3 scripts/doctor.py --online
 
 The second one needs a `config/search.json`; copy `templates/search.example.json` for a test run.
 
+## What CI does
+
+- **tests**: the offline unit tests on Python 3.9 and 3.12.
+- **no user data in PRs**: fails a pull request that adds anything under `profile/`, `data/`, `reports/`, `output/`, `documents/` or `config/search.json`.
+- **CodeQL**: security scan of the Python scripts.
+- **board health**: weekly, opens an issue when a board parser stops returning results.
+
 ## Style
 
 Functions short, names plain, comments only where the reason is not obvious.

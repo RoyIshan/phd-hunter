@@ -1,0 +1,49 @@
+name: board health
+
+# Job boards change their pages. Once a week, fetch one page from every board
+# and open (or update) an issue when a parser has stopped returning results.
+on:
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    if: github.repository == 'RoyIshan/phd-hunter'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Check every board
+        run: |
+          # Example files stand in for a profile so only the board lines matter.
+          mkdir -p config
+          cp templates/profile.example.yml profile/profile.yml
+          cp templates/cv.example.md profile/cv.md
+          cp templates/voice.example.md profile/voice.md
+          cp templates/search.example.json config/search.json
+          python3 scripts/doctor.py --online | tee doctor.txt || true
+          grep '^\[FAIL\] board ' doctor.txt > broken.txt || true
+          cat broken.txt
+      - name: Open or update the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -s broken.txt ]; then
+            echo "All boards returned results."
+            exit 0
+          fi
+          gh label create board-health --description "A board parser stopped returning results" --force
+          body=$(printf 'The weekly check ran on %s and these boards returned nothing:\n\n```\n%s\n```\n\nA board that used to work and now returns 0 results has usually changed its page layout. See docs/ADDING_A_BOARD.md for how a parser is written.\n' "$(date -u +%F)" "$(cat broken.txt)")
+          existing=$(gh issue list --label board-health --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "Board parser check failed" --label board-health --body "$body"
+          fi
