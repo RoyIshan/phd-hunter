@@ -369,6 +369,13 @@ No. The doctoral-role gate fails a postdoc, professor or technician post. For in
 </details>
 
 <details>
+<summary><b>Can it polish the wording of my drafts?</b></summary>
+
+Yes. If you have a humanizer or editing skill installed in your assistant, the modes run drafts through it before showing them. None is bundled; install any one you trust. Drafts must still pass `verify.py`, and you read every word before it goes out.
+
+</details>
+
+<details>
 <summary><b>Where does my data go?</b></summary>
 
 Your profile, tracker and drafts are local files in git-ignored folders. Your documents are sent to the AI provider you chose, so that it can read them, and nowhere else. There is no telemetry and no backend.
